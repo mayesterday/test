@@ -24,8 +24,10 @@ class registerCustomerController extends Controller
                                                     'permission' => 'required'
                                                 ]);
         if ($validator->fails()) {
+            // NOTE: Response messages validators errors
             return response()->json($validator);
         }else{
+            $siteID = str_random( 60 );
             $user = new uses();
             $user->email = $r->email;
             $user->password = $r->password;
@@ -33,7 +35,7 @@ class registerCustomerController extends Controller
             $user->lastname = $r->lastname;
             $user->pid = $r->pid;
             $user->permission = $r->permission;
-            $user->siteID = Session::get('user')['siteID'];
+            $user->siteID = $siteID;
             $user->save();
             return response()->json('success');
         }

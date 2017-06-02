@@ -14,7 +14,10 @@
 Auth::routes();
 Route::get('/home', 'HomeController@index');
 
-Route::get('registerCus', 'registerCustomerController@store');
+
+
+
+Route::post('registerCus', 'registerCustomerController@store');
 
 
 
