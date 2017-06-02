@@ -37,7 +37,11 @@ class main_function extends Controller
             return response()->json($validator->messages(), 200);
         }
 
+        // --------------------------------------------------------------------
+        // INsert Database
+        // --------------------------------------------------------------------
         $user = new user();
+
         if($id != null){
             $user = $user->where('siteID',Session::get('user')['siteID'])->where('id',$id)->first();
         }
