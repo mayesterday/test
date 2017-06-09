@@ -27,6 +27,7 @@ class registerCustomerController extends Controller
             // NOTE: Response messages validators errors
             return response()->json($validator);
         }else{
+            // NOTE: Generator 
             $siteID = str_random( 60 );
             $user = new uses();
             $user->email = $r->email;
